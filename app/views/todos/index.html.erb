@@ -3,7 +3,9 @@
 <ul>
   <% @todos.each do |todo| %>
     <li>
-      <a href="/todo/<%= todo.id %>"><%= todo.title %></a>
+      <%= link_to todo.title, todo %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "New Todo", new_todo_path %>

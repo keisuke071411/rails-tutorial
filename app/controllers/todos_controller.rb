@@ -1,4 +1,4 @@
-class TodoController < ApplicationController
+class TodosController < ApplicationController
   def index
     @todos = Todo.all
   end
@@ -23,6 +23,6 @@ class TodoController < ApplicationController
 
   private
     def todo_params
-      params.require(:todos).permit(:title, :description)
+      params.require(:todo).permit(:title, :description)
     end
 end
