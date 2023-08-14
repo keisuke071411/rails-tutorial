@@ -6,4 +6,23 @@ class TodoController < ApplicationController
   def show
     @todo = Todo.find(params[:id])
   end
+
+  def new
+    @todo = Todo.new
+  end
+
+  def create
+    @todo = Todo.new(todo_params)
+
+    if @todo.save
+      redirect_to @todo
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+    def todo_params
+      params.require(:todos).permit(:title, :description)
+    end
 end
